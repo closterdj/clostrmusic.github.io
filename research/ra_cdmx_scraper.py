@@ -10,17 +10,17 @@ Extrae, para un rango de fechas:
 Y produce tres salidas: JSON crudo, CSV plano y un resumen en Markdown con
 ranking de DJs, distribución de géneros y desglose por venue.
 
-Uso básico (últimos 6 meses, resuelve el área automáticamente):
+Uso básico (año en curso completo, resuelve el área automáticamente):
 
     python3 research/ra_cdmx_scraper.py
 
-Rango explícito y directorio de salida:
+Un año concreto:
 
-    python3 research/ra_cdmx_scraper.py --start 2026-01-01 --end 2026-08-29 -o research/out
+    python3 research/ra_cdmx_scraper.py --year 2026 -o research/out
 
-Eventos futuros en lugar de pasados:
+Rango explícito (por ejemplo, sólo lo transcurrido de 2026):
 
-    python3 research/ra_cdmx_scraper.py --start 2026-08-29 --end 2026-12-31
+    python3 research/ra_cdmx_scraper.py --start 2026-01-01 --end 2026-08-29
 
 Notas:
   - No requiere API key. RA expone un endpoint GraphQL público en /graphql, que es
@@ -381,11 +381,12 @@ def build_markdown(rows, genre_totals, start, end, area_id):
 def main():
     parser = argparse.ArgumentParser(
         description="Extrae eventos, line-ups y géneros de RA para CDMX.")
-    today = date.today()
-    parser.add_argument("--start", default=str(today - timedelta(days=180)),
-                        help="Fecha inicial YYYY-MM-DD (default: hace 180 días)")
-    parser.add_argument("--end", default=str(today),
-                        help="Fecha final YYYY-MM-DD (default: hoy)")
+    parser.add_argument("--year", type=int, default=None,
+                        help="Atajo para un año completo, p. ej. --year 2026")
+    parser.add_argument("--start", default=None,
+                        help="Fecha inicial YYYY-MM-DD (default: 1 de enero del año en curso)")
+    parser.add_argument("--end", default=None,
+                        help="Fecha final YYYY-MM-DD (default: 31 de diciembre del año en curso)")
     parser.add_argument("--area-id", type=int, default=None,
                         help="ID de área de RA. Si se omite, se resuelve solo.")
     parser.add_argument("-o", "--out-dir", default="research/out",
@@ -396,8 +397,14 @@ def main():
                         help="Omite el barrido por género (mucho más rápido)")
     args = parser.parse_args()
 
-    start = datetime.strptime(args.start, "%Y-%m-%d").date()
-    end = datetime.strptime(args.end, "%Y-%m-%d").date()
+    if args.year and (args.start or args.end):
+        parser.error("--year no se combina con --start/--end; usa uno u otro")
+
+    year = args.year or date.today().year
+    start = (datetime.strptime(args.start, "%Y-%m-%d").date()
+             if args.start else date(year, 1, 1))
+    end = (datetime.strptime(args.end, "%Y-%m-%d").date()
+           if args.end else date(year, 12, 31))
     if start > end:
         parser.error("--start no puede ser posterior a --end")
 

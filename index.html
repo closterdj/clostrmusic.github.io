@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLSTR | DJ & Producer</title>
+    <title>MENDU | DJ & Producer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -77,6 +77,18 @@
             margin-top: 20px;
             font-size: 1.1rem;
             color: #888;
+        }
+
+        /* FASE 2 — línea transitoria de nombre anterior.
+           Borrar este bloque y el <div class="exname"> del hero
+           cuando se retire el "ex-CLSTR" (aprox. 1 año). */
+        .exname {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #666;
+            margin-top: 16px;
         }
 
         /* Bio */
@@ -170,8 +182,42 @@
 </head>
 <body>
 
+<!--
+  ==========================================================================
+  REBRANDING CLSTR -> MENDU
+  Fase 1 (hecha): nombre visible cambiado. Todo lo funcional sigue intacto
+  y operando, porque las cuentas y el dominio todavía no se han movido.
+
+  PENDIENTES DE FASE 2 — cambiar el mismo día, de forma coordinada:
+
+  [ ] CNAME ................. clostrmusic.com -> dominio nuevo
+                              (NO tocar hasta tener el dominio comprado;
+                               si se cambia antes, el sitio se cae)
+  [ ] Redirección 301 ....... clostrmusic.com -> dominio nuevo,
+                              y renovar el dominio viejo 2 años mínimo
+  [ ] Email ................. booking@clostrmusic.com -> nuevo
+                              (dejar reenvío activo 2 años)
+  [ ] SoundCloud ............ permalink /clstrwav -> nuevo
+                              OJO: rompe enlaces externos existentes.
+                              El iframe de abajo usa ID de track y sobrevive;
+                              los <a href> visibles NO.
+  [ ] Mixcloud .............. permalink /clostr -> nuevo (mismo riesgo)
+  [ ] Instagram ............. @__clstr__ -> nuevo
+  [ ] TikTok ................ @djclostr.wav -> nuevo
+  [ ] YouTube ............... revisar handle del canal
+  [ ] assets/ ............... CLSTR_STUDIO*.jpg -> renombrar (opcional,
+                              no es visible para el usuario)
+  [ ] Spotify ............... pedir cambio en Spotify for Artists Y exigir
+                              a la distribuidora que entregue al URI de
+                              artista EXISTENTE. Si crea uno nuevo, el
+                              catálogo se parte y los seguidores vuelven a 0.
+
+  FASE 3 (aprox. 1 año): borrar .exname del CSS y el <div class="exname">.
+  ==========================================================================
+-->
+
     <nav class="mono">
-        <div>CLSTR</div>
+        <div>MENDU</div>
         <div>
             <a href="#bio">BIO</a>
             <a href="#music">MUSIC</a>
@@ -181,7 +227,9 @@
     </nav>
 
     <section id="hero">
-        <h1>CLSTR</h1>
+        <h1>MENDU</h1>
+        <!-- FASE 2: borrar esta línea cuando se retire el nombre anterior -->
+        <div class="exname">antes CLSTR</div>
         <div class="mono tags">Techno · House · Nu-Disco · Indie-Dance · Vinyl</div>
         <p style="margin-top: 20px; max-width: 600px;">Emerging DJ/Producer from Mexico City. A meticulous selector treating every set as an intentional, atmospheric journey built to move people.</p>
     </section>
@@ -191,15 +239,15 @@
         <div class="bio-container">
             <div>
                 <span class="lang-tag mono">ES</span>
-                <p>CLSTR es un DJ y productor emergente de Ciudad de México. Su sonido navega entre el techno crudo e hipnótico, el house clásico y profundo, el Nu-Disco y el Indie-Dance — géneros que no compiten, sino que coexisten bajo una misma sensibilidad: la del curador obsesivo.</p><br>
-                <p>Con formación técnica en equipo Pioneer DJ de nivel profesional y un acercamiento paralelo al vinilo, CLSTR entiende el set como un viaje con inicio, tensión y resolución. En cuatro meses ha tocado en Leonor Condesa, Hooka Lounge Condesa, Bardo Speakeasy y en la Electricidad Night del Skatepark Fest en Chihuahua.</p><br>
-                <p>Su background musical abarca rock, metal, jazz, blues, ska, reggae, electrónica y música clásica — una amplitud que se traduce en selecciones que sorprenden sin perder coherencia. En el estudio, da sus primeros pasos como productor y explora síntesis analógica, con miras a desarrollar live sets e integraciones de livecoding. La música no es tendencia para CLSTR. Es el punto de partida.</p>
+                <p>MENDU es un DJ y productor emergente de Ciudad de México. Su sonido navega entre el techno crudo e hipnótico, el house clásico y profundo, el Nu-Disco y el Indie-Dance — géneros que no compiten, sino que coexisten bajo una misma sensibilidad: la del curador obsesivo.</p><br>
+                <p>Con formación técnica en equipo Pioneer DJ de nivel profesional y un acercamiento paralelo al vinilo, MENDU entiende el set como un viaje con inicio, tensión y resolución. En cuatro meses ha tocado en Leonor Condesa, Hooka Lounge Condesa, Bardo Speakeasy y en la Electricidad Night del Skatepark Fest en Chihuahua.</p><br>
+                <p>Su background musical abarca rock, metal, jazz, blues, ska, reggae, electrónica y música clásica — una amplitud que se traduce en selecciones que sorprenden sin perder coherencia. En el estudio, da sus primeros pasos como productor y explora síntesis analógica, con miras a desarrollar live sets e integraciones de livecoding. La música no es tendencia para MENDU. Es el punto de partida.</p>
             </div>
             <div>
                 <span class="lang-tag mono">EN</span>
-                <p>CLSTR is an emerging DJ and producer from Mexico City. His sound moves between raw and hypnotic techno, classic and deep house, Nu-Disco, and Indie-Dance — not as a genre exercise, but as the natural output of an obsessive selector.</p><br>
-                <p>Trained on professional Pioneer DJ equipment and developing a parallel approach to vinyl, CLSTR treats every set as a journey: intentional, atmospheric, and built to move people. In four months he has played Leonor Condesa, Hooka Lounge Condesa, Bardo Speakeasy, and the Electricidad Night at Skatepark Fest in Chihuahua.</p><br>
-                <p>His musical background spans rock, metal, jazz, blues, ska, electronic, and classical music — a breadth that informs selections that surprise without losing focus. In the studio, he is finishing his first original tracks and exploring analog synthesis, with plans for hybrid live sets and livecoding integrations. For CLSTR, music is not a trend. It is the starting point.</p>
+                <p>MENDU is an emerging DJ and producer from Mexico City. His sound moves between raw and hypnotic techno, classic and deep house, Nu-Disco, and Indie-Dance — not as a genre exercise, but as the natural output of an obsessive selector.</p><br>
+                <p>Trained on professional Pioneer DJ equipment and developing a parallel approach to vinyl, MENDU treats every set as a journey: intentional, atmospheric, and built to move people. In four months he has played Leonor Condesa, Hooka Lounge Condesa, Bardo Speakeasy, and the Electricidad Night at Skatepark Fest in Chihuahua.</p><br>
+                <p>His musical background spans rock, metal, jazz, blues, ska, electronic, and classical music — a breadth that informs selections that surprise without losing focus. In the studio, he is finishing his first original tracks and exploring analog synthesis, with plans for hybrid live sets and livecoding integrations. For MENDU, music is not a trend. It is the starting point.</p>
             </div>
         </div>
 
@@ -228,7 +276,7 @@
 
     <section id="music">
         <h2 style="margin-bottom: 40px;">Selected Sets & Media</h2>
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2157997473&color=%23444441&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/clstrwav" title="CLSTR" target="_blank" style="color: #cccccc; text-decoration: none;">CLSTR</a> · <a href="https://soundcloud.com/clstrwav/techno-night-sessions-vol6" title="Techno Night Sessions Vol.6" target="_blank" style="color: #cccccc; text-decoration: none;">Techno Night Sessions Vol.6</a></div>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2157997473&color=%23444441&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/clstrwav" title="MENDU" target="_blank" style="color: #cccccc; text-decoration: none;">MENDU</a> · <a href="https://soundcloud.com/clstrwav/techno-night-sessions-vol6" title="Techno Night Sessions Vol.6" target="_blank" style="color: #cccccc; text-decoration: none;">Techno Night Sessions Vol.6</a></div>
         <iframe width="100%" height="120" src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Fclostr%2Fsunset-house-vibes-vol1%2F" frameborder="0" allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;" ></iframe>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/Cds5YeVpGj8?si=7z08oZiEnC9zti1L" title="SESIONES MÆTERIA 006" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
